@@ -19,7 +19,7 @@ class MainApp extends StatelessWidget {
         body: ListView(
           children: [
             SizedBox(
-              height: 400,
+              height: 300,
               child: HorizontalScroller(),
             ),
             const SizedBox(
@@ -64,10 +64,32 @@ class MainApp extends StatelessWidget {
                 tileColor: Colors.lightGreenAccent,
                 leading: Icon(Icons.looks_5, size: 40),
                 title: Text('Default Font (Roboto)')),
-            const SizedBox(height: 20), // Space between elements
+            const SizedBox(height: 5), // Space between elements
+            SizedBox(
+              height: 300,
+              child: LocalGallery(),
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  ListView LocalGallery() {
+    const imageList = [
+      'assets/images/school.jpg',
+      'assets/images/winter.jpg',
+      'assets/images/pig.jpg',
+    ];
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: 3,
+      itemBuilder: (context, index) {
+        return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child:
+                Image.asset(imageList[index], height: 300, fit: BoxFit.cover));
+      },
     );
   }
 
@@ -78,8 +100,8 @@ class MainApp extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Image.network('https://placehold.co/600x400@2x.png',
-              width: 200, height: 200),
+          child:
+              Image.network('https://placehold.co/600x400@2x.png', height: 300),
         );
       },
     );
