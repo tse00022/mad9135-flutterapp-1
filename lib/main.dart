@@ -10,6 +10,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Layout Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Doto'),
       home: Scaffold(
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget {
               SizedBox(
                 height: 400,
                 child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: (context, index) {
                     return Padding(
