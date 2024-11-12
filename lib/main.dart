@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Layout Demo',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Doto'),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Roboto'),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Basic Layout'),
@@ -26,25 +26,27 @@ class MainApp extends StatelessWidget {
               height: 20,
             ),
             const ListTile(
-              leading: Icon(Icons.star),
-              title: Text('ListTile with Regular Font',
-                  style: TextStyle(fontFamily: 'Doto')),
+              leading: Icon(Icons.looks_one, size: 40),
+              title: Text('Doto Font', style: TextStyle(fontFamily: 'Doto')),
             ),
             const ListTile(
-              leading: CircleAvatar(child: Icon(Icons.person)),
-              title: Text('ListTile with Bold Font',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              leading: Icon(Icons.looks_two, size: 40),
+              title:
+                  Text('Caveat Font', style: TextStyle(fontFamily: "Caveat")),
             ),
             const ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('ListTile with Italic Font',
+              leading: Icon(Icons.looks_3, size: 40),
+              title: Text('Roboto Font',
                   style: TextStyle(
-                      fontFamily: 'Doto', fontStyle: FontStyle.normal)),
+                      fontFamily: 'Roboto', fontStyle: FontStyle.normal)),
             ),
             const ListTile(
-              trailing: Icon(Icons.arrow_forward),
-              title: Text('Default Device Font'),
+              leading: Icon(Icons.looks_4, size: 40),
+              title: Text('Tiny5 Font', style: TextStyle(fontFamily: 'Tiny5')),
             ),
+            const ListTile(
+                leading: Icon(Icons.looks_5, size: 40),
+                title: Text('Default Font (Roboto)')),
             const SizedBox(height: 20), // Space between elements
           ],
         ),
