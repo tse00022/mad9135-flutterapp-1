@@ -1,68 +1,68 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      title: 'Layout Demo',
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Doto'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Basic Layout'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        body: Padding(
+          padding: const EdgeInsets.all(8),
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 400,
+                child: ListView.builder(
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Image.network(
+                          'https://placehold.co/600x400@2x.png',
+                          width: 200,
+                          height: 200),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const ListTile(
+                leading: Icon(Icons.star),
+                title: Text('ListTile with Regular Font',
+                    style: TextStyle(fontFamily: 'Doto')),
+              ),
+              const ListTile(
+                leading: CircleAvatar(child: Icon(Icons.person)),
+                title: Text('ListTile with Bold Font',
+                    style: TextStyle(
+                        fontFamily: 'Doto', fontWeight: FontWeight.bold)),
+              ),
+              const ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('ListTile with Italic Font',
+                    style: TextStyle(
+                        fontFamily: 'Doto', fontStyle: FontStyle.italic)),
+              ),
+              const ListTile(
+                trailing: Icon(Icons.arrow_forward),
+                title: Text('Default Device Font'),
+              ),
+              const SizedBox(height: 20), // Space between elements
+            ],
+          ),
+        ),
       ),
     );
   }
